@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
 
         if (timeValue <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("LostScene");
         }
     }
 
