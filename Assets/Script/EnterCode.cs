@@ -18,6 +18,9 @@ public class EnterCode : MonoBehaviour
     [SerializeField] GameObject disableQACanvas;
     [SerializeField] GameObject enableASCanvas;
 
+    [SerializeField] AudioSource correct;
+    [SerializeField] AudioSource incorrect;
+
     public float delay = 2.0f;
 
     private void Start()
@@ -41,12 +44,14 @@ public class EnterCode : MonoBehaviour
             Ans.text = "Correct!";
             disableQACanvas.SetActive(false);
             enableASCanvas.SetActive(true);
+            correct.Play();
         }
         else
         {
             Ans.text = "Retry!";
             Invoke("BackOut", delay);
             decreaseTime.decreaseTime();
+            incorrect.Play();
         }
     }
 
@@ -59,6 +64,6 @@ public class EnterCode : MonoBehaviour
     //For the bomb
     public void correctCode()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("WinScene");
     }
 }
