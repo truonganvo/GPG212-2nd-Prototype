@@ -64,6 +64,15 @@ public class EnterCode : MonoBehaviour
     //For the bomb
     public void correctCode()
     {
-        SceneManager.LoadScene("WinScene");
+        if (Ans.text == Answer)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+        else
+        {
+            Ans.text = "Retry!";
+            Invoke("BackOut", delay);
+            decreaseTime.decreaseTime();
+        }
     }
 }
